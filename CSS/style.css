@@ -1,0 +1,53 @@
+:root{ --brand: #2e7d32; }
+
+/* Smooth scroll without JS */
+html { scroll-behavior: smooth; }
+
+#preloader{
+  position: fixed; inset: 0; display: grid; place-items: center;
+  background: #fff; z-index: 2000;
+  /* match JS fade time (shortened) */
+  transition: opacity .25s ease, visibility .25s ease;
+}
+#preloader.fade-out { opacity: 0; visibility: hidden; }
+@media (prefers-reduced-motion: reduce){ #preloader { transition: none; } }
+
+/* Larger green spinner variant (uses Bootstrap spinner base) */
+.spinner-border-lg{
+  width: 3rem;
+  height: 3rem;
+  border-width: .35em;
+}
+
+/* Navbar scroll state (JS toggles .scrolled) */
+.navbar { background: transparent; transition: background-color .25s ease, box-shadow .25s ease; }
+.navbar.scrolled {
+  background: #fff;
+  /* subtle green-tinted shadow to reinforce brand */
+  box-shadow: 0 8px 24px rgba(46,125,50,0.12);
+  border-bottom: 2px solid rgba(46,125,50,0.06);
+}
+
+/* Hero */
+.hero{
+  min-height: 100vh; padding-top: 6rem; /* clear fixed navbar */
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  color: #1b5e20;
+}
+
+/* responsive heading sizing for the hero */
+.hero .display-5{
+  font-size: clamp(1.6rem, 3.5vw + .5rem, 2.75rem);
+}
+
+/* make hero CTA a little more prominent on small screens */
+.hero .btn-lg{ padding: .75rem 1.25rem; }
+
+/* Section heading */
+.section-title { color: var(--brand); font-weight: 700; }
+
+/* Cards */
+.card img { height: 200px; object-fit: cover; }
+
+/* Contact */
+.contact { background: #f7fff7; }
